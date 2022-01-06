@@ -1,0 +1,29 @@
+diff --git a/node_modules/node-switchbot/lib/switchbot.d.ts b/node_modules/node-switchbot/lib/switchbot.d.ts
+new file mode 100644
+index 0000000..538e9a2
+--- /dev/null
++++ b/node_modules/node-switchbot/lib/switchbot.d.ts
+@@ -0,0 +1,23 @@
++declare module 'node-switchbot' {
++  class Switchbot {
++    discover: (params: ISwitchbotDiscoverParams) => Promise<SwitchbotDevice[]>;
++    wait: (msec: number) => Promise<void>;
++  }
++
++  export type SwitchbotDevice = {
++    down: () => Promise<void>;
++    up: () => Promise<void>;
++    press: () => Promise<void>;
++    id: string;
++    address: string;
++    model: string;
++  };
++
++  export type ISwitchbotDiscoverParams = {
++    duration?: number;
++    model?: 'H' | 'T' | 'M' | 'CS' | 'c';
++    id?: string;
++    quick?: boolean;
++  };
++  export default Switchbot;
++}
