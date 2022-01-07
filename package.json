@@ -24,7 +24,9 @@
     ],
     "nohoist": [
       "**/node-switchbot",
-      "**/node-switchbot/**"
+      "**/node-switchbot/**",
+      "**/@abandonware/noble",
+      "**/@abandonware/noble/**"
     ]
   }
 }
