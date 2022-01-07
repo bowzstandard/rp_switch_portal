@@ -6,14 +6,13 @@
   "scripts": {
     "postinstall": "npx patch-package",
     "clean": "yarn rimraf dist .tmp",
-    "build": "yarn clean && tsc && yarn esbuild .tmp/index.js --bundle --minify --sourcemap --platform=node --target=node16.13.1 --outfile=dist/bundle.js",
-    "start": "yarn build && node dist/bundle.js",
+    "build": "yarn clean && tsc && yarn esbuild .tmp/index.js --bundle --minify --sourcemap --platform=node --target=node16.13.1 --external:@abandonware/noble --outfile=dist/bundle.js",
+    "start": "yarn build && yarn nodemon dist/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@abandonware/noble": "1.9.2-15",
     "@bowzstandard_switch_portal/api_interfaces": "1.0.0",
     "@sinclair/typebox": "^0.23.2",
     "aws-lambda-fastify": "^1.7.1",
@@ -31,6 +30,7 @@
     "@types/node": "^17.0.0",
     "esbuild": "^0.14.10",
     "fastify-swagger": "^4.13.0",
+    "nodemon": "^2.0.15",
     "rimraf": "^3.0.2",
     "tap": "^15.0.9",
     "typescript": "^4.5.4"

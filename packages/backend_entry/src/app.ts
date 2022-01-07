@@ -7,7 +7,7 @@ import { Static } from '@sinclair/typebox';
 export const createApp = (server: FastifyInstance) => {
   server.register(sensible);
 
-  server.get<{
+  server.post<{
     Params: Static<typeof Bot.PushAPI.Params>;
     Headers: Static<typeof Bot.PushAPI.Headers>;
     Reply: Static<typeof Bot.PushAPI.Reply>;

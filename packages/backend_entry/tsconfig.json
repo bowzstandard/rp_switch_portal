@@ -7,7 +7,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "module": "ESNext",
-    "isolatedModules": true,
     "baseUrl": "./",
     "outDir": "./.tmp",
     "rootDir": "./src",

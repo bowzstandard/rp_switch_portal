@@ -1,4 +1,4 @@
-import { Static, TSchema, TypeBuilder } from '@sinclair/typebox';
+import { Static, TSchema } from '@sinclair/typebox';
 
 export type GetApiBase<
   S extends `/${string}`,

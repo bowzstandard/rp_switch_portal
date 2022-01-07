@@ -9,31 +9,27 @@ export class SwitchbotAgent {
 
   constructor(readonly deviceId: string) {}
 
-  init() {
-    this.discover();
+  async init() {
+    await this.discover();
   }
 
   private async discover() {
-    try {
-      const switchBot = new Switchbot();
-      const found_peripherals = await switchBot.discover({
-        model: 'H',
-        quick: false,
-      });
+    const switchBot = new Switchbot();
+    const found_peripherals = await switchBot.discover({
+      model: 'H',
+      quick: false,
+    });
 
-      const filtered_peripheral = found_peripherals.filter((peripheral) => {
-        return peripheral.id === this.deviceId;
-      });
+    const filtered_peripheral = found_peripherals.filter((peripheral) => {
+      return peripheral.address === this.deviceId;
+    });
 
-      if (filtered_peripheral.length === 0) {
-        this.device = undefined;
-        throw new Error('No device was found.');
-      }
-      // The `SwitchbotDeviceWoHand` object representing the found Bot.
-      this.device = filtered_peripheral[0];
-    } catch (e) {
-      console.log(e);
+    if (filtered_peripheral.length === 0) {
+      this.device = undefined;
+      throw new Error('No device was found.');
     }
+    // The `SwitchbotDeviceWoHand` object representing the found Bot.
+    this.device = filtered_peripheral[0];
   }
 
   switchReserved() {

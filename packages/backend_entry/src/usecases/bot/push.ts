@@ -1,7 +1,8 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { Static } from '@sinclair/typebox';
-import { Bot } from '@bowzstandard_switch_portal/api_interfaces';
+import { Bot, Fixtures } from '@bowzstandard_switch_portal/api_interfaces';
 import * as http from 'http';
+import { SwitchbotAgent } from '../../entities/switch_bot_agent';
 
 export const BotPushUseCase = async (
   request: FastifyRequest<
@@ -26,5 +27,27 @@ export const BotPushUseCase = async (
     unknown
   >
 ) => {
-  return {};
+  if (
+    !Object.keys(Fixtures.Bot.BotID.properties).includes(request.params.bot_id)
+  ) {
+    reply.code(401).send({
+      causedBy: 'invalid bot id',
+    });
+    return;
+  }
+
+  try {
+    const bot = new SwitchbotAgent(
+      Fixtures.Bot.BotID.properties[request.params.bot_id].pattern
+    );
+
+    await bot.init();
+    await bot.scanAndPress();
+
+    reply.code(200).send({});
+  } catch (e) {
+    reply.code(401).send({
+      causedBy: e,
+    });
+  }
 };

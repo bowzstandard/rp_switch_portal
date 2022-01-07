@@ -2,7 +2,7 @@ import { PostApiBase } from '../base';
 import { Static, Type } from '@sinclair/typebox';
 import { BotID } from '../fixtures/bot';
 
-export const Route = '/bot/:bot_id/push/' as const;
+export const Route = '/bot/push/:bot_id' as const;
 
 export const Headers = Type.Object({
   Authorization: Type.String(),
