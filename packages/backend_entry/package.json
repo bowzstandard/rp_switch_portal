@@ -7,7 +7,7 @@
     "postinstall": "npx patch-package",
     "clean": "yarn rimraf dist .tmp",
     "build": "yarn clean && tsc && yarn esbuild .tmp/index.js --bundle --minify --sourcemap --platform=node --target=node16.13.1 --external:@abandonware/noble --outfile=dist/bundle.js",
-    "start": "yarn build && yarn nodemon dist/bundle.js",
+    "start": "yarn nodemon dist/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

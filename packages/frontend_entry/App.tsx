@@ -1,12 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Provider as PaperProvider, Button } from 'react-native-paper';
+import Constants from 'expo-constants';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>hoge Open up App.tsx to start working on your app!</Text>
-      <StatusBar style='auto' />
-    </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <Button
+          icon='redo'
+          mode='contained'
+          onPress={async () => {
+            const url = `${
+              Constants?.manifest?.extra?.BACKEND_ENDPOINT ?? ''
+            }/bot/push/livingWindow`;
+            const response = await fetch(url, {
+              method: 'POST',
+              headers: {
+                authorization: 'hogehoge',
+              },
+            });
+            console.log(response);
+          }}
+        >
+          リビング(窓側)
+        </Button>
+        <Button mode='contained' icon='undo' onPress={() => {}}>
+          リビング(キッチン側)
+        </Button>
+        <Button mode='contained' icon='content-cut' onPress={() => {}} disabled>
+          寝室
+        </Button>
+      </View>
+    </PaperProvider>
   );
 }
 
