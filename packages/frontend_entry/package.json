@@ -1,13 +1,13 @@
 {
   "name": "frontend_entry",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "index.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "start": "yarn expo start",
+    "android": "yarn expo start --android",
+    "ios": "yarn expo start --ios",
+    "web": "yarn expo start --web",
+    "eject": "yarn expo eject"
   },
   "dependencies": {
     "expo": "~44.0.0",

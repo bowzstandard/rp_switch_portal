@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bowzstandard_switch_portal/api_interfaces": "1.0.0",
+    "@bowzstandard_switch_portal/api_interfaces": "*",
     "@sinclair/typebox": "^0.23.2",
     "aws-lambda-fastify": "^1.7.1",
     "fastify": "^3.0.0",
