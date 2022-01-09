@@ -1,0 +1,4 @@
+{
+  "name": "@bowzstandard_switch_portal/backend_entry",
+  "script": "node dist/bundle.js"
+}

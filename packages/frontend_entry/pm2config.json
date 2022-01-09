@@ -1,0 +1,4 @@
+{
+  "name": "@bowzstandard_switch_portal/frontend_entry",
+  "script": "yarn start"
+}
