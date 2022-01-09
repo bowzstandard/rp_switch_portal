@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "yarn expo start",
-    "android": "yarn expo start --android",
-    "ios": "yarn expo start --ios",
-    "web": "yarn expo start --web",
-    "eject": "yarn expo eject"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
   },
   "dependencies": {
     "@bowzstandard_switch_portal/api_interfaces": "*",
